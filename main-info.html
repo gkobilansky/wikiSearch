@@ -1,0 +1,11 @@
+<div ng-if="!wikiData" class="description">
+    <p>This is a simple autocomplete search for wikipedia, written in AngularJS.</p>
+</div>
+
+
+
+<div ng-if="wikiData">
+    <a href="{{wikiData.url}}"><img ng-src="{{ wikiData.thumbnail }}">
+        <h1>{{ wikiData.title }}</h1></a>
+    <div ng-bind-html="wikiData.extract"></div>
+</div>

@@ -1,0 +1,9 @@
+<div ng-if="wikiData">
+    <h3>Related Results</h3>
+    <div ng-show="!wikiResults[1].length">No Results</div>
+    <ul>
+        <li ng-repeat="name in wikiResults[1]">
+            <a ng-href="{{wikiResults[3][$index]}}">{{name}}</a>
+        </li>
+    </ul>
+</div>

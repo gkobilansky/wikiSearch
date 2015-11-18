@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="WikiController">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/allmighty-autocomplete/style/autocomplete.css">
+    <link rel="stylesheet" type="text/css" href="app.css">
+    <title ng-bind="'wikiSearch - ' + wikiData.title"></title>
+</head>
+
+<body>
+
+    <div class="container-fluid outerdiv">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#"><b>wikiSearch</b> <span class="span-style">Crafted Answers</span></a>
+                </div>
+            </div>
+        </nav>
+
+        <noscript>
+            <div class="nojs">Javascript is either disabled or not supported in your browser. Please enable it or use a Javascript enabled browser.</div>
+        </noscript>
+
+
+        <div class="input-group search-bar">
+            <form ng-submit="fetch(search)">
+
+                <autocomplete ng-model="search" attr-placeholder="type to search Wikipedia..." click-activation="true" data="wikiResults[1]" on-type="updateWiki" on-select="fetch" autofocus></autocomplete>
+
+            </form>
+
+        </div>
+
+
+        <div id="main-info" ng-include="'main-info.html'">
+        </div>
+
+        <div id="related-results" ng-include="'related-results.html'">
+        </div>
+    </div>
+    <div class="footer">
+        <p> <a href="http://lancekey.com">Lancekey</a> - 2015. All Movie Rights Reserved</p>
+    </div>
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/min/angular.min.js"></script>
+    <script type="text/javascript" src="js/min/angular-sanitize.min.js"></script>
+    <script type="text/javascript" src="bower_components/allmighty-autocomplete/script/autocomplete.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>
